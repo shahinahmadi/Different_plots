@@ -1,0 +1,36 @@
+#include <iostream>
+#include <tgmath.h>
+#include <math.h>  
+#incluede<iostream>
+#include<cstdio>
+#include <bits/stdc++.h> 
+using namespace std;
+int main(){k
+    int i,j,l,m;
+  cin>>l;
+  cin>>m;
+  double a[l][m];
+  for ( i=0 ; i<l ;i++){
+    for (j=0; j<m;j++){
+      cin>>a[i][j];
+ 
+    }
+  }  
+  cout<<"This is my matrix"<<endl;
+  for ( i=0 ; i<l ;i++){
+    for (j=0; j<m;j++){
+      cout<<a[i][j];  
+      if(j==m-1){cout<<endl;}
+    }
+  }
+  cout<<"This is transposed matrix"<<endl;
+  for ( i=0 ; i<l ;i++){
+    for (j=0; j<m;j++){
+      a[i][j]=a[j][i];
+      cout<<a[i][j];  
+      if(j==m-1){cout<<endl;}
+    }
+  }
+
+
+}

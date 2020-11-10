@@ -1,0 +1,84 @@
+//#include "TFile.h"
+//#include "TH2D.h"
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include <cmath>
+#include <iomanip>
+#include <vector>
+#include <cstdio>
+#include "TGraph.h"
+#include <iostream>
+#include<math.h>
+#include "TH2.h"
+using namespace std;
+
+void graph(){
+
+  double  x, dx;
+  double y, dy;
+  double constant,z,L;
+  constant=1;
+  dx=0.1;
+  dy=0.1;
+  z=1;
+  L=1;
+  vector<double>myvector;
+  vector<double>myxposition;
+  vector<double>myyposition;
+  for (x=0.1; x<4; x+=dx){
+   myxposition.push_back(x);}
+    for (y=0.1; y<4; y+=dy){
+   myyposition.push_back(y);}
+   for(x=0.1; x<4; x+=dx){
+    for(y=0.1;y<4; y+=dy){
+  double   k=constant*(x*y);
+            myvector.push_back(k);
+    
+       // cout<<k<<endl;
+      
+  }
+
+    }
+
+
+
+  
+ int n=myvector.size();
+ double B[n];
+ double P[n];
+ double T[n];
+ TH2D* hprof2d = new TH2D("MagnetPlot","p vs T ; P;T",40,0,4,40,0,4);
+ for(int i=0; i<myxposition.size();i++){P[i]=myxposition.at(i);}
+ for(int i=0;i<myyposition.size();i++){T[i]=myyposition.at(i);}
+  for (int i=0;i<myvector.size();i++){
+  B[i]=myvector.at(i);
+  cout<<B[i]<<endl;
+ }
+ Int_t r;
+ for(Int_t i=0;i<100; i++)
+ {for(Int_t j=0; j<100; j++){
+ r=i*j;
+ 
+ hprof2d->SetBinContent(i,j,r);
+}}
+hprof2d->Draw("colz");
+//const Int_t XBINS = 5; const Int_t YBINS = 5;Double_t xEdges[XBINS + 1] = {0.0, 0.2, 0.3, 0.6, 0.8, 1.0};Double_t yEdges[YBINS + 1] = {-1.0, -0.4, -0.2, 0.5, 0.7, 1.0};TH2* h =new TH2D("h2", "h2", XBINS, xEdges, YBINS, yEdges);
+//h->Draw();
+  
+}
+  //Graph* gr = new TGraph( n, p, B );
+//  gr->SetTitle("Magnetic field measurement;x dimension (cm);Magnetic field(Gauss)");
+  //gr->GetXaxis()->CenterTitle();
+  //gr->GetYaxis()->CenterTitle();
+ //make default line width bigger 
+  //gr->SetLineWidth(3);
+  //gr->Draw();
+
+
+//void graph(){
+//}
+
+
+
